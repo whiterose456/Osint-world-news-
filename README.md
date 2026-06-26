@@ -19,7 +19,9 @@ OSINT World News is a single-page intelligence dashboard that pulls live world n
 
 - 🗺️ **Interactive World Map** — powered by Leaflet.js with a dark CartoDB tile layer
 - 📰 **Live News Feed** — fetches real-time headlines from BBC World News via RSS
-- 🔴 **Severity Classification** — auto-tags stories as `critical`, `high`, or `medium` based on keywords
+- � **Search + Filters** — search by keyword and filter by type, severity, or source
+- 🔄 **Refresh Button** — reload the latest feed on demand
+- �🔴 **Severity Classification** — auto-tags stories as `critical`, `high`, or `medium` based on keywords
 - 🏷️ **Type Detection** — categorizes news as `cyber`, `protest`, or `conflict`
 - 📍 **Geo-pinned Markers** — stories are mapped to relevant global hotspots (Washington D.C., Moscow, Beijing, Kyiv, etc.)
 - 🖱️ **Click to Fly** — clicking a news card flies the map to that location with a smooth animation
