@@ -1,62 +1,81 @@
 # 🌍 OSINT World News
 
-A real-time global news intelligence dashboard that scrapes and visualizes world news on an interactive map — built with a cyber/dark-ops aesthetic.
+A modern OSINT dashboard that combines React, Vite, Express, and Leaflet to visualize live world news across a cyber-inspired interactive map.
 
-![HTML](https://img.shields.io/badge/HTML-100%25-orange?style=flat-square&logo=html5)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-CDN-38bdf8?style=flat-square&logo=tailwindcss)
-![Leaflet](https://img.shields.io/badge/Leaflet.js-Map-green?style=flat-square)
-![React](https://img.shields.io/badge/React-18-61dafb?style=flat-square&logo=react)
+![React](https://img.shields.io/badge/React-19.2.7-61dafb?style=flat-square&logo=react)
+![Vite](https://img.shields.io/badge/Vite-5.4.1-646cff?style=flat-square&logo=vite)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.4-38bdf8?style=flat-square&logo=tailwindcss)
+![Express](https://img.shields.io/badge/Express-4.18.4-000000?style=flat-square&logo=express)
 
 ---
 
 ## 📡 Overview
 
-OSINT World News is a single-page intelligence dashboard that pulls live world news from RSS feeds and plots them as geo-tagged markers on an interactive dark-themed world map. Each news item is automatically classified by **severity** and **type**, giving it a real OSINT (Open Source Intelligence) operator feel.
+OSINT World News is a full-stack news intelligence dashboard. It fetches BBC World RSS headlines on the server, enriches each item with classification and geo-mapping logic, and renders stories on a responsive dark-themed global map.
+
+The application includes:
+- a React + Vite frontend
+- an Express backend API proxy
+- real-time news classification by type and severity
+- interactive markers and map fly-to behavior
 
 ---
 
-## ✨ Features
+## ✨ Project Features
 
-- 🗺️ **Interactive World Map** — powered by Leaflet.js with a dark CartoDB tile layer
-- 📰 **Live News Feed** — fetches real-time headlines from BBC World News via RSS
-- � **Search + Filters** — search by keyword and filter by type, severity, or source
-- 🔄 **Refresh Button** — reload the latest feed on demand
-- �🔴 **Severity Classification** — auto-tags stories as `critical`, `high`, or `medium` based on keywords
-- 🏷️ **Type Detection** — categorizes news as `cyber`, `protest`, or `conflict`
-- 📍 **Geo-pinned Markers** — stories are mapped to relevant global hotspots (Washington D.C., Moscow, Beijing, Kyiv, etc.)
-- 🖱️ **Click to Fly** — clicking a news card flies the map to that location with a smooth animation
-- 🎨 **Cyber UI** — dark terminal-style interface with custom scrollbars, glass panels, and glowing markers
+- 🗺️ **Interactive world map** with Leaflet and dark basemap tiles
+- 📰 **Live news feed** served from `server/index.ts` using `rss-parser`
+- 🔎 **Search and filter** by keyword, type, severity, and source
+- 🔄 **Refresh on demand** with a refresh button
+- 🚨 **Severity classification** into `critical`, `high`, or `medium`
+- 🧭 **Type classification** into `cyber`, `protest`, or `conflict`
+- 📍 **Hotspot mapping** to major world cities based on keyword detection
+- ✈️ **Fly-to-on-click** behavior for selected news items
+- 🖤 **Cyber UI** with a glass-panel aesthetic and neon highlights
 
 ---
 
-## 🛠️ Tech Stack
+## 🧱 Tech Stack
 
-| Technology | Purpose |
+| Layer | Technology |
 |---|---|
-| HTML / CSS | Structure & styling |
-| Tailwind CSS | Utility-first responsive design |
-| React 18 (CDN) | UI components & state management |
-| Leaflet.js | Interactive map rendering |
-| Lucide Icons | Icon library |
-| BBC RSS + rss2json API | Live news data source |
+| Frontend | React 19 + TypeScript |
+| Styling | Tailwind CSS |
+| Maps | React Leaflet + Leaflet |
+| Icons | Lucide React |
+| Backend | Express + rss-parser |
+| Dev tooling | Vite, tsx, concurrently |
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Local Setup
 
-No build tools or installation required — this is a pure HTML file.
-
-1. Clone the repository:
+1. Install dependencies:
    ```bash
-   git clone https://github.com/whiterose456/Osint-world-news-.git
+   npm install
    ```
 
-2. Open `index.html` directly in your browser:
+2. Start both frontend and backend:
    ```bash
-   open index.html
+   npm run dev
    ```
 
-That's it. The app will fetch live news on load.
+3. Open the frontend at:
+   ```text
+   http://localhost:5173
+   ```
+
+The Vite client proxies `/api` requests to the Express server running on port `4000`.
+
+---
+
+## 🧪 Available Scripts
+
+- `npm run dev` — run Vite frontend and Express backend together
+- `npm run dev:client` — start the Vite development server only
+- `npm run dev:server` — start the Express API server only
+- `npm run build` — build the React app for production
+- `npm run preview` — preview the production build
 
 ---
 
@@ -64,24 +83,43 @@ That's it. The app will fetch live news on load.
 
 ```
 Osint-world-news-/
-└── index.html       # Entire application — map, UI, logic, and styles
+├── index.html
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+├── postcss.config.js
+├── tailwind.config.js
+├── server/
+│   └── index.ts       # Express backend API for RSS parsing and classification
+└── src/
+    ├── App.tsx        # React UI, filters, map, and data handling
+    ├── main.tsx       # React entrypoint
+    └── index.css      # Tailwind + global styling
 ```
 
 ---
 
-## 🔮 Planned Features
+## 🔧 Backend Behavior
 
-- [ ] Search/filter news by keyword
-- [ ] Multiple RSS source support (Reuters, Al Jazeera, etc.)
-- [ ] Real geolocation from article metadata
-- [ ] Timeline/history playback of news events
-- [ ] Export intel report as PDF
+The server fetches the BBC World RSS feed and converts each news item into a structured JSON object with:
+- `title`
+- `summary`
+- `link`
+- `source`
+- `pubDate`
+- `type` (`cyber`, `protest`, or `conflict`)
+- `severity` (`critical`, `high`, or `medium`)
+- `location` (mapped from hotspot keywords)
+
+This makes the app easier to extend with additional RSS sources or geolocation rules.
 
 ---
 
-## 🧠 What is OSINT?
+## 📌 Notes
 
-**OSINT** (Open Source Intelligence) is the practice of collecting and analyzing publicly available information for intelligence purposes. This tool automates the aggregation of open news sources and presents them in a geospatial context — similar to tools used by journalists, researchers, and security analysts.
+- The current source is BBC World News RSS.
+- Hotspot locations are inferred from keywords and may not exactly match the article location.
+- The project supports environment variable `PORT` for the backend server.
 
 ---
 
@@ -91,4 +129,4 @@ MIT License — free to use, modify, and distribute.
 
 ---
 
-> Built by [@whiterose456](https://github.com/whiterose456)
+> Built for OSINT-style world news visualization
