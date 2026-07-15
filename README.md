@@ -78,6 +78,7 @@ The Vite client proxies `/api` requests to the Express server running on port `4
 - `npm run preview` — preview the production build
 
 ---
+Architecture and project mapping stacks 
 
 ## 📁 Project Structure
 
