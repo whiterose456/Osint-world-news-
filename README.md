@@ -116,11 +116,7 @@ This makes the app easier to extend with additional RSS sources or geolocation r
 
 ---
 
-## 📌 Notes
 
-- The current source is BBC World News RSS.
-- Hotspot locations are inferred from keywords and may not exactly match the article location.
-- The project supports environment variable `PORT` for the backend server.
 
 ---
 
