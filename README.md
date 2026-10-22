@@ -1,4 +1,4 @@
-# 🌍 OSINT World News
+# 🌍 OSINT World News project 
 
 A modern OSINT dashboard that combines React, Vite, Express, and Leaflet to visualize live world news across a cyber-inspired interactive map.
 
