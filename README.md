@@ -227,7 +227,7 @@ Potential next steps:
 - [ ] Introduce source reliability metadata and links to original reporting.
 - [ ] Add automated tests for parsing, classification, and API responses.
 - [ ] Improve API error states and loading feedback.
-- [ ] Add deployment documentation for the frontend and backend services.
+- [ ] Add deployment documentation for the frontend and backend services..
 
 ## Contributing
 
